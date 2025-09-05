@@ -11,6 +11,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -36,9 +37,9 @@ export default defineConfig({
   projects: [
     {
       name: 'conduit',
-      testDir: './tests/conduit-api',
+      testDir: './tests/conduit',
       use: {
-        baseURL: 'https://conduit-api.learnwebdriverio.com/api',
+        baseURL: 'https://conduit-api.learnwebdriverio.com',
       },
     },
 
