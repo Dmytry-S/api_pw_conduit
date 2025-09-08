@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "article": "npx playwright test tests/conduit/article.spec.ts",
+    "user": "npx playwright test tests/conduit/user.spec.ts",
+    "search": "npx playwright test tests/conduit/search.spec.ts",
+    "favorite": "npx playwright test tests/conduit/favorite.spec.ts",
+    "comment": "npx playwright test tests/conduit/comment.spec.ts",
+    "all": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

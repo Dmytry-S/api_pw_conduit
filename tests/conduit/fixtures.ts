@@ -1,12 +1,14 @@
 import { test as base, expect } from '@playwright/test';
-import { userEmail, userName, userPassword } from '../../utils/user-article-data';
+import { userName, userPassword, userEmail } from '../../utils/user-data';
 
 type Fixtures = {
     token: string;
+    email: string;
+    password: string;
 }
 
 export const test = base.extend<Fixtures>({
-    token:async({ request }, use) => {
+    token: async ({ request }, use) => {
         const response = await request.post('/api/users/', 
             {
                 data: {
@@ -24,5 +26,10 @@ export const test = base.extend<Fixtures>({
         
         await use(token);
     },
-
+    email: async ({}, use) => {
+        await use(userEmail);
+    },
+    password: async ({}, use) => {
+        await use(userPassword);
+    },
 });

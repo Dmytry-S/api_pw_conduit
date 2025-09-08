@@ -1,12 +1,5 @@
 import Joi from 'joi';
 
-export const userEmail = 'dm' + Date.now() + '@gm.co';
-export const userPassword = '12345';
-export const userName = 'dmsv' + Date.now();
-export const articleTitle = 'QA-Test-Article';
-export const articleDescription = 'Article description';
-export const articleBody = 'Article text';
-export const articleTagList = ['pwqa'];
 
 export const articleSchema = Joi.object({
 	article: Joi.object({
