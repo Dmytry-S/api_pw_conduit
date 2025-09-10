@@ -124,7 +124,7 @@ export class Article {
         return response;
     }
     
-    async getArticleComments(slug: string, token: string, commentId: number) {
+    async getArticleComments(slug: string, token: string, commentId: string) {
         const response = await this.request.get(`/api/articles/${slug}/comments/${commentId}`, {
             headers: {
                 authorization: `Token ${token}`,
@@ -133,7 +133,7 @@ export class Article {
         return response;
     }
 
-    async deleteCommentFromArticle(slug: string, commentId: number, token: string) {
+    async deleteCommentFromArticle(slug: string, commentId: string, token: string) {
         const response = await this.request.delete(`/api/articles/${slug}/comments/${commentId}`, {
             headers: {
                 authorization: `Token ${token}`,

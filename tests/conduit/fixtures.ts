@@ -31,5 +31,9 @@ export const test = base.extend<Fixtures>({
     },
     password: async ({}, use) => {
         await use(userPassword);
-    },
+    }
 });
+
+test.afterEach(async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+})

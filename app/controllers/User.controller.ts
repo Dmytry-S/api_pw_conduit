@@ -24,6 +24,7 @@ export class User {
                 email: string,
                 username: string,
                 bio: string,
+                image?: string,
             }
           ) {
         const response = await this.request.put(`/api/user`, {
