@@ -3,7 +3,14 @@ import { test } from './fixtures';
 import { Article } from '../../app/controllers/Article.controller';
 import { articleBody, articleDescription, articleTagList, articleTitle } from '../../utils/article-data';
 
-test('Add-delete article to favorite', async ({ request, token }) => {
+test('Add-delete article to favorite', 
+    { tag: ['@article', '@favorite'],
+      annotation: {
+        type: 'description',
+        description: 'Add, delete favorite to article',
+      },
+    },
+    async ({ request, token }) => {
     const article = new Article(request);
     const createResponse = await article.createArticle(
         token, 
@@ -31,5 +38,4 @@ test('Add-delete article to favorite', async ({ request, token }) => {
     const deleteFromFavoriteResponseBody = await deleteFromFavoriteResponse.json();
     expect(deleteFromFavoriteResponseBody.article.slug).toEqual(slug);
     expect(deleteFromFavoriteResponseBody.article.favorited).toBe(false);
-
 });  

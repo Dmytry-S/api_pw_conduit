@@ -3,7 +3,14 @@ import { test } from './fixtures';
 import { Article } from '../../app/controllers/Article.controller';
 import { articleBody, articleDescription, articleTagList, articleTitle, commentBody } from '../../utils/article-data';
 
-test('Add-delete comment to article', async ({ request, token }) => {
+test('ART-002 Add-delete comment to article', 
+    { tag: ['@article', '@comment'],
+      annotation: {
+        type: 'description',
+        description: 'Create comment to article, delete comment',
+      },
+    },
+    async ({ request, token }) => {
     const article = new Article(request);
     const createResponse = await article.createArticle(
         token, 

@@ -3,7 +3,14 @@ import { test } from './fixtures';
 import { updatedBio, userName, userPassword } from '../../utils/user-data';
 import { User } from '../../app/controllers/User.controller'; 
 
-test('Login user', async ({ request, token, email, password }) => {
+test('Login user', 
+    { tag: ['@user', '@login'],
+      annotation: {
+        type: 'description',
+        description: 'Login user',
+      },
+    },
+    async ({ request, token, email, password }) => {
     const user = new User(request);
     const response = await user.loginUser(token, { email, password });
     expect(response.status()).toBe(200);
@@ -12,7 +19,14 @@ test('Login user', async ({ request, token, email, password }) => {
     expect(body.user.username).toBe(userName);
 });
 
-test('Update user', async ({ request, token, email }) => {
+test('Update user', 
+    { tag: ['@user', '@update'],
+      annotation: {
+        type: 'description',
+        description: 'Update user',
+      },
+    },
+    async ({ request, token, email }) => {
     const user = new User(request);
     const response = await user.updateUser(
         token, 

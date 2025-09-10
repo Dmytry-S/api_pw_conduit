@@ -6,7 +6,14 @@ import { Article } from '../../app/controllers/Article.controller';
 import { userName } from '../../utils/user-data';
 
 
-test('CRUD article', async ({ request, token }) => {
+test('CRUD article', 
+    { tag: ['@article', '@crud'],
+      annotation: {
+        type: 'description',
+        description: 'Create, read, update, delete article',
+      },
+    },
+    async ({ request, token }) => {
     const article = new Article(request);
     const createResponse = await article.createArticle(
         token, 
@@ -61,6 +68,4 @@ test('CRUD article', async ({ request, token }) => {
 
     const deleteResponse = await article.deleteArticle(slug, token);
     expect(deleteResponse.status()).toBe(204);
-
-    
 });
