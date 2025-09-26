@@ -1,6 +1,5 @@
 import Joi from 'joi';
 
-
 export const articleSchema = Joi.object({
 	article: Joi.object({
         slug: Joi.string().required(),

@@ -1,7 +1,7 @@
 import { APIRequestContext } from "@playwright/test";
 
 
-export class User {
+export class Users {
     request: APIRequestContext;
 
     constructor(request: APIRequestContext) {

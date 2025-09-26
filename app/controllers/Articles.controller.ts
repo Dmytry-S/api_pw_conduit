@@ -1,7 +1,6 @@
 import { APIRequestContext } from "@playwright/test";
 
-
-export class Article {
+export class Articles {
     request: APIRequestContext;
 
     constructor(request: APIRequestContext) {
@@ -10,15 +9,14 @@ export class Article {
 
     async createArticle(
         token: string, 
-        data: { article: 
-                {
+        data: { article: {
                     author:{}, 
                     title: string,
                     description: string, 
                     body: string,
                     tagList: string[],
+                    },
                 }
-            },
           ) {
         const response = await this.request.post(`/api/articles`, {
             headers: {
@@ -78,7 +76,7 @@ export class Article {
         return response;
     }
 
-    async searchArticle(token: string, searchedTitle: string) {
+    async searchArticle(token: string) {
         const searchResponse = await this.request.get(`/api/articles`, {
             headers: {
                 authorization: `Token ${token}`,

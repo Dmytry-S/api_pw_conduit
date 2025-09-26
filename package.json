@@ -2,7 +2,6 @@
   "name": "api_pw_conduit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "article": "npx playwright test tests/conduit/article.spec.ts",
     "user": "npx playwright test tests/conduit/user.spec.ts",
